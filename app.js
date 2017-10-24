@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.get('/:id', (req, res) => {
 	var currentId = req.params.id,
-			requestedURL = 'https://urlshortenerfuzyon.herokuapp.com' + currentId;
+			requestedURL = 'https://urlshortenerfuzyon.herokuapp.com/' + currentId;
 	
 	if (shortid.isValid(currentId)) {
 		URL.findOne({short_url: requestedURL})
@@ -39,7 +39,7 @@ app.get('/:id', (req, res) => {
 });
 
 app.get('/new/:url(*)', (req, res) => {
-	var shortURL = 'https://urlshortenerfuzyon.herokuapp.com',
+	var shortURL = 'https://urlshortenerfuzyon.herokuapp.com/',
 			currentURL = req.params.url;
 	
 	if (validURL.isUri(currentURL)) {
